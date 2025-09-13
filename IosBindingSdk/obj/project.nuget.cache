@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "+B/wjx6ACpk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ilija\\Desktop\\Repos\\IosBindingSdk\\IosBindingSdk.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ilija\\.nuget\\packages\\microsoft.net.illink.tasks\\8.0.6\\microsoft.net.illink.tasks.8.0.6.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,12 @@
+C:\Users\ilija\Desktop\Repos\IosBindingSdk\bin\Debug\net8.0-ios\IosBindingSdk.dll
+C:\Users\ilija\Desktop\Repos\IosBindingSdk\bin\Debug\net8.0-ios\IosBindingSdk.pdb
+C:\Users\ilija\Desktop\Repos\IosBindingSdk\obj\Debug\net8.0-ios\_ProcessedBundleResourcesPath.items
+C:\Users\ilija\Desktop\Repos\IosBindingSdk\obj\Debug\net8.0-ios\_ProcessedContentPath.items
+C:\Users\ilija\Desktop\Repos\IosBindingSdk\obj\Debug\net8.0-ios\IosBindingSdk.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ilija\Desktop\Repos\IosBindingSdk\obj\Debug\net8.0-ios\IosBindingSdk.AssemblyInfoInputs.cache
+C:\Users\ilija\Desktop\Repos\IosBindingSdk\obj\Debug\net8.0-ios\IosBindingSdk.AssemblyInfo.cs
+C:\Users\ilija\Desktop\Repos\IosBindingSdk\obj\Debug\net8.0-ios\IosBindingSdk.csproj.CoreCompileInputs.cache
+C:\Users\ilija\Desktop\Repos\IosBindingSdk\obj\Debug\net8.0-ios\IosBindingSdk.dll
+C:\Users\ilija\Desktop\Repos\IosBindingSdk\obj\Debug\net8.0-ios\refint\IosBindingSdk.dll
+C:\Users\ilija\Desktop\Repos\IosBindingSdk\obj\Debug\net8.0-ios\IosBindingSdk.pdb
+C:\Users\ilija\Desktop\Repos\IosBindingSdk\obj\Debug\net8.0-ios\ref\IosBindingSdk.dll
