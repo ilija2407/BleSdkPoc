@@ -1,0 +1,7 @@
+﻿<Properties StartupConfiguration="{C4ED7623-F7C8-4F88-A8A4-35179478A023}|Default">
+  <DisabledProjects>
+    <String>../AndroidBindingSdk/AndroidBindingSdk.csproj</String>
+  </DisabledProjects>
+  <MonoDevelop.Ide.ItemProperties.BleSdkMauiPoc PreferredExecutionTarget="MyAppleMacCatalystID" />
+  <MultiItemStartupConfigurations />
+</Properties>

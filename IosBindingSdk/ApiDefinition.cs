@@ -8,9 +8,6 @@ namespace IgloohomeProxy
     [BaseType(typeof(NSObject), Name = "IgloohomeSwitfProxy")]
     interface IgloohomeSwitfProxy
     {
-        [Export("init")]
-        IntPtr Constructor();
-
         // -(void)scanOnSuccess:(void (^)(IglooLockProxy *lock))onSuccess onFail:(void (^)(NSString *message))onFail;
         [Export("scanOnSuccess:onFail:")]
         void ScanOnSuccess(Action<IglooLockProxy> onSuccess, Action<string> onFail);
