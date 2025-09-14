@@ -1,7 +1,46 @@
 ﻿<Properties StartupConfiguration="{C4ED7623-F7C8-4F88-A8A4-35179478A023}|Default">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <DisabledProjects>
     <String>../AndroidBindingSdk/AndroidBindingSdk.csproj</String>
   </DisabledProjects>
-  <MonoDevelop.Ide.ItemProperties.BleSdkMauiPoc PreferredExecutionTarget="MyAppleMacCatalystID" />
+  <MonoDevelop.Ide.ItemProperties.BleSdkMauiPoc PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workbench ActiveDocument="BleSdkMauiPoc.csproj">
+    <Files>
+      <File FileName="MainPage.xaml.cs" />
+      <File FileName="BleSdkMauiPoc.csproj" Line="30" Column="26" />
+      <File FileName="MauiProgram.cs" />
+      <File FileName="Platforms/iOS/Program.cs" />
+      <File FileName="Platforms/iOS/AppDelegate.cs" />
+      <File FileName="../IosBindingSdk/IosBindingSdk.csproj" Line="19" Column="21" />
+      <File FileName="../../../../usr/local/share/dotnet/sdk/8.0.403/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.RuntimeIdentifierInference.targets" Line="288" Column="5" />
+      <File FileName="Platforms/iOS/Info.plist" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BleSdkMauiPoc" expanded="True">
+            <Node name="BleSdkMauiPoc">
+              <Node name="Platforms" expanded="True">
+                <Node name="iOS" expanded="True" />
+              </Node>
+              <Node name="MainPage.xaml" expanded="True" />
+            </Node>
+            <Node name="IosBindingSdk" expanded="True">
+              <Node name="NativeReferenceFolder" expanded="True" selected="True" />
+              <Node name="NativeReferences" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Users/tatjanaruskovska/Desktop/BleSdkPoc/Platforms/iOS/AppDelegate.cs" relfile="Platforms/iOS/AppDelegate.cs" line="7" column="1" />
+      <Breakpoint file="/Users/tatjanaruskovska/Desktop/BleSdkPoc/Platforms/iOS/Program.cs" relfile="Platforms/iOS/Program.cs" line="10" column="1" />
+      <Breakpoint file="/Users/tatjanaruskovska/Desktop/BleSdkPoc/Platforms/iOS/AppDelegate.cs" relfile="Platforms/iOS/AppDelegate.cs" line="4" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
 </Properties>

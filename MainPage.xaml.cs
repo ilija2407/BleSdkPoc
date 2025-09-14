@@ -7,12 +7,12 @@ using System.Linq;
 using Android.OS;
 using Java.Interop;
 using CO.Igloohome.Ble.Lock;
-using ReactiveX.Functions; // Android side already working
+using ReactiveX.Functions;
 #endif
 
 #if IOS
 using Foundation;
-using IgloohomeSwitfProxy; // <- from your iOS binding project
+using IgloohomeProxy; // <- correct namespace from binding project
 #endif
 
 namespace BleSdkMauiPoc
@@ -47,7 +47,7 @@ namespace BleSdkMauiPoc
 #if ANDROID
             var context = Android.App.Application.Context;
             bleManager = new BleManager(context);
-
+ 
             thread = new HandlerThread("BlePocThread");
             thread.Start();
             handler = new Handler(thread.Looper);
@@ -73,16 +73,16 @@ namespace BleSdkMauiPoc
                 StatusLabel.Text = "Bluetooth permissions are not granted.";
                 return;
             }
-
+ 
             FoundDevices.Clear();
             StatusLabel.Text = "Scanning...";
             scanDisposable?.Dispose();
-
+ 
             var scanSettings = new Android.Bluetooth.LE.ScanSettings.Builder()
                 .SetScanMode(Android.Bluetooth.LE.ScanMode.LowLatency)
                 .Build();
             bleManager.SetDebug(true);
-
+ 
             scanDisposable = bleManager.Scan(scanSettings, handler)
                 .Subscribe(
                     new ConsumerImpl<IglooLock>(iglooLock =>
@@ -156,14 +156,14 @@ namespace BleSdkMauiPoc
             public ConsumerImpl(Action<T> action) => _action = action;
             public void Accept(Java.Lang.Object t) => _action?.Invoke(t.JavaCast<T>());
         }
-
+ 
         private class ErrorConsumerImpl : Java.Lang.Object, IConsumer
         {
             private readonly Action<Java.Lang.Throwable> _action;
             public ErrorConsumerImpl(Action<Java.Lang.Throwable> action) => _action = action;
             public void Accept(Java.Lang.Object t) => _action?.Invoke(t.JavaCast<Java.Lang.Throwable>());
         }
-
+ 
         private async Task<bool> CheckAndRequestBluetoothPermissions()
         {
             var status = await Permissions.CheckStatusAsync<BluetoothPermissions>();
@@ -171,7 +171,7 @@ namespace BleSdkMauiPoc
                 status = await Permissions.RequestAsync<BluetoothPermissions>();
             return status == PermissionStatus.Granted;
         }
-
+ 
         private class BluetoothPermissions : Permissions.BasePlatformPermission
         {
             public override (string androidPermission, bool isRuntime)[] RequiredPermissions =>
