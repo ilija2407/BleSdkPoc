@@ -1,0 +1,407 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target armv7-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name RxBluetoothKit
+import CoreBluetooth
+import Foundation
+@_exported import RxBluetoothKit
+import RxSwift
+import Swift
+public struct AdvertisementData {
+  public let advertisementData: [Swift.String : Any]
+  public init(advertisementData: [Swift.String : Any])
+  public var localName: Swift.String? {
+    get
+  }
+  public var manufacturerData: Foundation.Data? {
+    get
+  }
+  public var serviceData: [CoreBluetooth.CBUUID : Foundation.Data]? {
+    get
+  }
+  public var serviceUUIDs: [CoreBluetooth.CBUUID]? {
+    get
+  }
+  public var overflowServiceUUIDs: [CoreBluetooth.CBUUID]? {
+    get
+  }
+  public var txPowerLevel: Foundation.NSNumber? {
+    get
+  }
+  public var isConnectable: Swift.Bool? {
+    get
+  }
+  public var solicitedServiceUUIDs: [CoreBluetooth.CBUUID]? {
+    get
+  }
+}
+public enum BluetoothError : Swift.Error {
+  case destroyed
+  case scanInProgress
+  case advertisingInProgress
+  case advertisingStartFailed(Swift.Error)
+  case bluetoothUnsupported
+  case bluetoothUnauthorized
+  case bluetoothPoweredOff
+  case bluetoothInUnknownState
+  case bluetoothResetting
+  case peripheralIsAlreadyObservingConnection(RxBluetoothKit.Peripheral)
+  @available(*, deprecated, renamed: "BluetoothError.peripheralIsAlreadyObservingConnection")
+  case peripheralIsConnectingOrAlreadyConnected(RxBluetoothKit.Peripheral)
+  case peripheralConnectionFailed(RxBluetoothKit.Peripheral, Swift.Error?)
+  case peripheralDisconnected(RxBluetoothKit.Peripheral, Swift.Error?)
+  case peripheralRSSIReadFailed(RxBluetoothKit.Peripheral, Swift.Error?)
+  case servicesDiscoveryFailed(RxBluetoothKit.Peripheral, Swift.Error?)
+  case includedServicesDiscoveryFailed(RxBluetoothKit.Peripheral, Swift.Error?)
+  case addingServiceFailed(CoreBluetooth.CBService, Swift.Error?)
+  case characteristicsDiscoveryFailed(RxBluetoothKit.Service, Swift.Error?)
+  case characteristicWriteFailed(RxBluetoothKit.Characteristic, Swift.Error?)
+  case characteristicReadFailed(RxBluetoothKit.Characteristic, Swift.Error?)
+  case characteristicNotifyChangeFailed(RxBluetoothKit.Characteristic, Swift.Error?)
+  case characteristicSetNotifyValueFailed(RxBluetoothKit.Characteristic, Swift.Error?)
+  case descriptorsDiscoveryFailed(RxBluetoothKit.Characteristic, Swift.Error?)
+  case descriptorWriteFailed(RxBluetoothKit.Descriptor, Swift.Error?)
+  case descriptorReadFailed(RxBluetoothKit.Descriptor, Swift.Error?)
+  case openingL2CAPChannelFailed(RxBluetoothKit.Peripheral, Swift.Error?)
+  case publishingL2CAPChannelFailed(CoreBluetooth.CBL2CAPPSM, Swift.Error?)
+  case unknownWriteType
+}
+extension BluetoothError : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension BluetoothError : Swift.Equatable {
+}
+public func == (lhs: RxBluetoothKit.BluetoothError, rhs: RxBluetoothKit.BluetoothError) -> Swift.Bool
+public enum BluetoothState : Swift.Int {
+  case unknown
+  case resetting
+  case unsupported
+  case unauthorized
+  case poweredOff
+  case poweredOn
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@available(*, deprecated, renamed: "OnWillRestoreCentralManagerState")
+public typealias OnWillRestoreState = (RxBluetoothKit.RestoredState) -> Swift.Void
+public typealias OnWillRestoreCentralManagerState = (RxBluetoothKit.CentralManagerRestoredState) -> Swift.Void
+extension CentralManager {
+  @available(*, deprecated, renamed: "CentralManager.init(queue:options:onWillRestoreCentralManagerState:)")
+  convenience public init(queue: Dispatch.DispatchQueue = .main, options: [Swift.String : Swift.AnyObject]? = nil, cbCentralManager: CoreBluetooth.CBCentralManager? = nil, onWillRestoreState: RxBluetoothKit.OnWillRestoreState? = nil)
+  convenience public init(queue: Dispatch.DispatchQueue = .main, options: [Swift.String : Swift.AnyObject]? = nil, cbCentralManager: CoreBluetooth.CBCentralManager? = nil, onWillRestoreCentralManagerState: RxBluetoothKit.OnWillRestoreCentralManagerState? = nil)
+}
+public typealias DisconnectionReason = Swift.Error
+@_hasMissingDesignatedInitializers public class CentralManager : RxBluetoothKit.ManagerType {
+  final public let manager: CoreBluetooth.CBCentralManager
+  @available(*, deprecated, renamed: "CentralManager.manager")
+  public var centralManager: CoreBluetooth.CBCentralManager {
+    get
+  }
+  convenience public init(queue: Dispatch.DispatchQueue = .main, options: [Swift.String : Swift.AnyObject]? = nil, cbCentralManager: CoreBluetooth.CBCentralManager? = nil)
+  public func attach()
+  public var state: RxBluetoothKit.BluetoothState {
+    get
+  }
+  public func observeState() -> RxSwift.Observable<RxBluetoothKit.BluetoothState>
+  public func observeStateWithInitialValue() -> RxSwift.Observable<RxBluetoothKit.BluetoothState>
+  public var isScanInProgress: Swift.Bool {
+    get
+  }
+  public func scanForPeripherals(withServices serviceUUIDs: [CoreBluetooth.CBUUID]?, options: [Swift.String : Any]? = nil) -> RxSwift.Observable<RxBluetoothKit.ScannedPeripheral>
+  public func establishConnection(_ peripheral: RxBluetoothKit.Peripheral, options: [Swift.String : Any]? = nil) -> RxSwift.Observable<RxBluetoothKit.Peripheral>
+  public func retrieveConnectedPeripherals(withServices serviceUUIDs: [CoreBluetooth.CBUUID]) -> [RxBluetoothKit.Peripheral]
+  public func retrievePeripherals(withIdentifiers identifiers: [Foundation.UUID]) -> [RxBluetoothKit.Peripheral]
+  public func observeConnect(for peripheral: RxBluetoothKit.Peripheral? = nil) -> RxSwift.Observable<RxBluetoothKit.Peripheral>
+  public func observeDisconnect(for peripheral: RxBluetoothKit.Peripheral? = nil) -> RxSwift.Observable<(RxBluetoothKit.Peripheral, RxBluetoothKit.DisconnectionReason?)>
+  @available(iOS 13.0, watchOS 6.0, tvOS 13.0, *)
+  public func observeANCSAuthorized(for peripheral: RxBluetoothKit.Peripheral) -> RxSwift.Observable<Swift.Bool>
+  @objc deinit
+  public typealias Manager = CoreBluetooth.CBCentralManager
+}
+public struct CentralManagerRestoredState {
+  public let restoredStateData: [Swift.String : Any]
+  unowned public let centralManager: RxBluetoothKit.CentralManager
+  public var peripherals: [RxBluetoothKit.Peripheral] {
+    get
+  }
+  public var scanOptions: [Swift.String : Swift.AnyObject]? {
+    get
+  }
+  public var services: [RxBluetoothKit.Service] {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers public class Characteristic {
+  final public let characteristic: CoreBluetooth.CBCharacteristic
+  final public let service: RxBluetoothKit.Service
+  public var value: Foundation.Data? {
+    get
+  }
+  public var uuid: CoreBluetooth.CBUUID {
+    get
+  }
+  public var isNotifying: Swift.Bool {
+    get
+  }
+  public var properties: CoreBluetooth.CBCharacteristicProperties {
+    get
+  }
+  public var descriptors: [RxBluetoothKit.Descriptor]? {
+    get
+  }
+  public func discoverDescriptors() -> RxSwift.Single<[RxBluetoothKit.Descriptor]>
+  public func observeWrite() -> RxSwift.Observable<RxBluetoothKit.Characteristic>
+  public func observeNotifyValue() -> RxSwift.Observable<RxBluetoothKit.Characteristic>
+  public func writeValue(_ data: Foundation.Data, type: CoreBluetooth.CBCharacteristicWriteType) -> RxSwift.Single<RxBluetoothKit.Characteristic>
+  public func observeValueUpdate() -> RxSwift.Observable<RxBluetoothKit.Characteristic>
+  public func readValue() -> RxSwift.Single<RxBluetoothKit.Characteristic>
+  public func observeValueUpdateAndSetNotification() -> RxSwift.Observable<RxBluetoothKit.Characteristic>
+  @objc deinit
+}
+extension Characteristic : Swift.Equatable {
+}
+public func == (lhs: RxBluetoothKit.Characteristic, rhs: RxBluetoothKit.Characteristic) -> Swift.Bool
+@_hasMissingDesignatedInitializers public class Descriptor {
+  final public let descriptor: CoreBluetooth.CBDescriptor
+  final public let characteristic: RxBluetoothKit.Characteristic
+  public var uuid: CoreBluetooth.CBUUID {
+    get
+  }
+  public var value: Any? {
+    get
+  }
+  public func observeWrite() -> RxSwift.Observable<RxBluetoothKit.Descriptor>
+  public func writeValue(_ data: Foundation.Data) -> RxSwift.Single<RxBluetoothKit.Descriptor>
+  public func observeValueUpdate() -> RxSwift.Observable<RxBluetoothKit.Descriptor>
+  public func readValue() -> RxSwift.Single<RxBluetoothKit.Descriptor>
+  @objc deinit
+}
+extension Descriptor : Swift.Equatable {
+}
+public func == (lhs: RxBluetoothKit.Descriptor, rhs: RxBluetoothKit.Descriptor) -> Swift.Bool
+public protocol ServiceIdentifier {
+  var uuid: CoreBluetooth.CBUUID { get }
+}
+public protocol CharacteristicIdentifier {
+  var uuid: CoreBluetooth.CBUUID { get }
+  var service: RxBluetoothKit.ServiceIdentifier { get }
+}
+public protocol DescriptorIdentifier {
+  var uuid: CoreBluetooth.CBUUID { get }
+  var characteristic: RxBluetoothKit.CharacteristicIdentifier { get }
+}
+public protocol Logger {
+  func log(_ message: @autoclosure () -> Swift.String, level: RxBluetoothKit.RxBluetoothKitLog.LogLevel, file: Swift.StaticString, function: Swift.StaticString, line: Swift.UInt)
+  func log(_ message: @autoclosure () -> Swift.String, level: RxBluetoothKit.RxBluetoothKitLog.LogLevel, file: Swift.String, function: Swift.String, line: Swift.UInt)
+  func setLogLevel(_ logLevel: RxBluetoothKit.RxBluetoothKitLog.LogLevel)
+  func getLogLevel() -> RxBluetoothKit.RxBluetoothKitLog.LogLevel
+}
+@_hasMissingDesignatedInitializers public class RxBluetoothKitLog : RxSwift.ReactiveCompatible {
+  public static func setLogLevel(_ logLevel: RxBluetoothKit.RxBluetoothKitLog.LogLevel)
+  public static func getLogLevel() -> RxBluetoothKit.RxBluetoothKitLog.LogLevel
+  public enum LogLevel : Swift.UInt8 {
+    case none
+    case verbose
+    case debug
+    case info
+    case warning
+    case error
+    public typealias RawValue = Swift.UInt8
+    public init?(rawValue: Swift.UInt8)
+    public var rawValue: Swift.UInt8 {
+      get
+    }
+  }
+  @objc deinit
+  public typealias ReactiveBase = RxBluetoothKit.RxBluetoothKitLog
+}
+extension RxBluetoothKitLog.LogLevel : Swift.Comparable {
+  public static func < (lhs: RxBluetoothKit.RxBluetoothKitLog.LogLevel, rhs: RxBluetoothKit.RxBluetoothKitLog.LogLevel) -> Swift.Bool
+  public static func <= (lhs: RxBluetoothKit.RxBluetoothKitLog.LogLevel, rhs: RxBluetoothKit.RxBluetoothKitLog.LogLevel) -> Swift.Bool
+  public static func > (lhs: RxBluetoothKit.RxBluetoothKitLog.LogLevel, rhs: RxBluetoothKit.RxBluetoothKitLog.LogLevel) -> Swift.Bool
+  public static func >= (lhs: RxBluetoothKit.RxBluetoothKitLog.LogLevel, rhs: RxBluetoothKit.RxBluetoothKitLog.LogLevel) -> Swift.Bool
+  public static func == (lhs: RxBluetoothKit.RxBluetoothKitLog.LogLevel, rhs: RxBluetoothKit.RxBluetoothKitLog.LogLevel) -> Swift.Bool
+}
+extension Reactive where Base == RxBluetoothKit.RxBluetoothKitLog {
+  public var log: RxSwift.Observable<Swift.String> {
+    get
+  }
+}
+public protocol ManagerType : AnyObject {
+  associatedtype Manager
+  var manager: Self.Manager { get }
+  var state: RxBluetoothKit.BluetoothState { get }
+  func observeState() -> RxSwift.Observable<RxBluetoothKit.BluetoothState>
+  func observeStateWithInitialValue() -> RxSwift.Observable<RxBluetoothKit.BluetoothState>
+}
+extension ManagerType {
+  public func ensure<T>(_ state: RxBluetoothKit.BluetoothState, observable: RxSwift.Observable<T>) -> RxSwift.Observable<T>
+}
+extension Peripheral {
+  public func service(with identifier: RxBluetoothKit.ServiceIdentifier) -> RxSwift.Single<RxBluetoothKit.Service>
+  public func characteristic(with identifier: RxBluetoothKit.CharacteristicIdentifier) -> RxSwift.Single<RxBluetoothKit.Characteristic>
+  public func descriptor(with identifier: RxBluetoothKit.DescriptorIdentifier) -> RxSwift.Single<RxBluetoothKit.Descriptor>
+  public func observeWrite(for identifier: RxBluetoothKit.CharacteristicIdentifier) -> RxSwift.Observable<RxBluetoothKit.Characteristic>
+  public func writeValue(_ data: Foundation.Data, for identifier: RxBluetoothKit.CharacteristicIdentifier, type: CoreBluetooth.CBCharacteristicWriteType) -> RxSwift.Single<RxBluetoothKit.Characteristic>
+  public func observeValueUpdate(for identifier: RxBluetoothKit.CharacteristicIdentifier) -> RxSwift.Observable<RxBluetoothKit.Characteristic>
+  public func readValue(for identifier: RxBluetoothKit.CharacteristicIdentifier) -> RxSwift.Single<RxBluetoothKit.Characteristic>
+  public func observeValueUpdateAndSetNotification(for identifier: RxBluetoothKit.CharacteristicIdentifier) -> RxSwift.Observable<RxBluetoothKit.Characteristic>
+  public func discoverDescriptors(for identifier: RxBluetoothKit.CharacteristicIdentifier) -> RxSwift.Single<[RxBluetoothKit.Descriptor]>
+  public func observeWrite(for identifier: RxBluetoothKit.DescriptorIdentifier) -> RxSwift.Observable<RxBluetoothKit.Descriptor>
+  public func writeValue(_ data: Foundation.Data, for identifier: RxBluetoothKit.DescriptorIdentifier) -> RxSwift.Single<RxBluetoothKit.Descriptor>
+  public func observeValueUpdate(for identifier: RxBluetoothKit.DescriptorIdentifier) -> RxSwift.Observable<RxBluetoothKit.Descriptor>
+  public func readValue(for identifier: RxBluetoothKit.DescriptorIdentifier) -> RxSwift.Single<RxBluetoothKit.Descriptor>
+}
+@_hasMissingDesignatedInitializers public class Peripheral {
+  unowned final public let manager: RxBluetoothKit.CentralManager
+  final public let peripheral: CoreBluetooth.CBPeripheral
+  public func attach()
+  public var isConnected: Swift.Bool {
+    get
+  }
+  public var state: CoreBluetooth.CBPeripheralState {
+    get
+  }
+  public var name: Swift.String? {
+    get
+  }
+  public var identifier: Foundation.UUID {
+    get
+  }
+  public var services: [RxBluetoothKit.Service]? {
+    get
+  }
+  public var canSendWriteWithoutResponse: Swift.Bool {
+    get
+  }
+  public func observeConnection() -> RxSwift.Observable<Swift.Bool>
+  public func establishConnection(options: [Swift.String : Any]? = nil) -> RxSwift.Observable<RxBluetoothKit.Peripheral>
+  public func discoverServices(_ serviceUUIDs: [CoreBluetooth.CBUUID]?) -> RxSwift.Single<[RxBluetoothKit.Service]>
+  public func discoverIncludedServices(_ includedServiceUUIDs: [CoreBluetooth.CBUUID]?, for service: RxBluetoothKit.Service) -> RxSwift.Single<[RxBluetoothKit.Service]>
+  public func discoverCharacteristics(_ characteristicUUIDs: [CoreBluetooth.CBUUID]?, for service: RxBluetoothKit.Service) -> RxSwift.Single<[RxBluetoothKit.Characteristic]>
+  public func observeWrite(for characteristic: RxBluetoothKit.Characteristic? = nil) -> RxSwift.Observable<RxBluetoothKit.Characteristic>
+  @available(OSX 10.12, iOS 9.0, *)
+  public func maximumWriteValueLength(for type: CoreBluetooth.CBCharacteristicWriteType) -> Swift.Int
+  public func writeValue(_ data: Foundation.Data, for characteristic: RxBluetoothKit.Characteristic, type: CoreBluetooth.CBCharacteristicWriteType, canSendWriteWithoutResponseCheckEnabled: Swift.Bool = true) -> RxSwift.Single<RxBluetoothKit.Characteristic>
+  public func observeValueUpdate(for characteristic: RxBluetoothKit.Characteristic? = nil) -> RxSwift.Observable<RxBluetoothKit.Characteristic>
+  public func readValue(for characteristic: RxBluetoothKit.Characteristic) -> RxSwift.Single<RxBluetoothKit.Characteristic>
+  public func observeValueUpdateAndSetNotification(for characteristic: RxBluetoothKit.Characteristic) -> RxSwift.Observable<RxBluetoothKit.Characteristic>
+  public func observeNotifyValue(for characteristic: RxBluetoothKit.Characteristic) -> RxSwift.Observable<RxBluetoothKit.Characteristic>
+  public func discoverDescriptors(for characteristic: RxBluetoothKit.Characteristic) -> RxSwift.Single<[RxBluetoothKit.Descriptor]>
+  public func observeWrite(for descriptor: RxBluetoothKit.Descriptor? = nil) -> RxSwift.Observable<RxBluetoothKit.Descriptor>
+  public func observeValueUpdate(for descriptor: RxBluetoothKit.Descriptor? = nil) -> RxSwift.Observable<RxBluetoothKit.Descriptor>
+  public func readValue(for descriptor: RxBluetoothKit.Descriptor) -> RxSwift.Single<RxBluetoothKit.Descriptor>
+  public func writeValue(_ data: Foundation.Data, for descriptor: RxBluetoothKit.Descriptor) -> RxSwift.Single<RxBluetoothKit.Descriptor>
+  public func readRSSI() -> RxSwift.Single<(RxBluetoothKit.Peripheral, Swift.Int)>
+  public func observeNameUpdate() -> RxSwift.Observable<(RxBluetoothKit.Peripheral, Swift.String?)>
+  public func observeServicesModification() -> RxSwift.Observable<(RxBluetoothKit.Peripheral, [RxBluetoothKit.Service])>
+  public func observeWriteWithoutResponseReadiness() -> RxSwift.Observable<Swift.Void>
+  @available(iOS 11, OSX 10.14, tvOS 11, watchOS 4, *)
+  public func openL2CAPChannel(PSM: CoreBluetooth.CBL2CAPPSM) -> RxSwift.Single<CoreBluetooth.CBL2CAPChannel>
+  @objc deinit
+}
+extension Peripheral : Swift.Equatable {
+}
+public func == (lhs: RxBluetoothKit.Peripheral, rhs: RxBluetoothKit.Peripheral) -> Swift.Bool
+public typealias OnWillRestorePeripheralManagerState = (RxBluetoothKit.PeripheralManagerRestoredState) -> Swift.Void
+extension PeripheralManager {
+  convenience public init(queue: Dispatch.DispatchQueue = .main, options: [Swift.String : Swift.AnyObject]? = nil, cbPeripheralManager: CoreBluetooth.CBPeripheralManager? = nil, onWillRestorePeripheralManagerState: RxBluetoothKit.OnWillRestorePeripheralManagerState? = nil)
+}
+@_hasMissingDesignatedInitializers public class PeripheralManager : RxBluetoothKit.ManagerType {
+  final public let manager: CoreBluetooth.CBPeripheralManager
+  convenience public init(queue: Dispatch.DispatchQueue = .main, options: [Swift.String : Swift.AnyObject]? = nil, cbPeripheralManager: CoreBluetooth.CBPeripheralManager? = nil)
+  public var state: RxBluetoothKit.BluetoothState {
+    get
+  }
+  public func observeState() -> RxSwift.Observable<RxBluetoothKit.BluetoothState>
+  public func observeStateWithInitialValue() -> RxSwift.Observable<RxBluetoothKit.BluetoothState>
+  public func startAdvertising(_ advertisementData: [Swift.String : Any]?) -> RxSwift.Observable<RxBluetoothKit.StartAdvertisingResult>
+  public func add(_ service: CoreBluetooth.CBMutableService) -> RxSwift.Single<CoreBluetooth.CBService>
+  public func remove(_ service: CoreBluetooth.CBMutableService)
+  public func removeAllServices()
+  public func observeDidReceiveRead() -> RxSwift.Observable<CoreBluetooth.CBATTRequest>
+  public func observeDidReceiveWrite() -> RxSwift.Observable<[CoreBluetooth.CBATTRequest]>
+  public func respond(to request: CoreBluetooth.CBATTRequest, withResult result: CoreBluetooth.CBATTError.Code)
+  public func updateValue(_ value: Foundation.Data, for characteristic: CoreBluetooth.CBMutableCharacteristic, onSubscribedCentrals centrals: [CoreBluetooth.CBCentral]?) -> Swift.Bool
+  public func observeIsReadyToUpdateSubscribers() -> RxSwift.Observable<Swift.Void>
+  public func observeOnSubscribe() -> RxSwift.Observable<(CoreBluetooth.CBCentral, CoreBluetooth.CBCharacteristic)>
+  public func observeOnUnsubscribe() -> RxSwift.Observable<(CoreBluetooth.CBCentral, CoreBluetooth.CBCharacteristic)>
+  @available(iOS 11, tvOS 11, watchOS 4, *)
+  public func publishL2CAPChannel(withEncryption encryptionRequired: Swift.Bool) -> RxSwift.Observable<CoreBluetooth.CBL2CAPPSM>
+  @available(iOS 11, tvOS 11, watchOS 4, *)
+  public func observeDidOpenL2CAPChannel() -> RxSwift.Observable<(CoreBluetooth.CBL2CAPChannel?, Swift.Error?)>
+  @objc deinit
+  public typealias Manager = CoreBluetooth.CBPeripheralManager
+}
+public struct PeripheralManagerRestoredState {
+  public let restoredStateData: [Swift.String : Any]
+  public var services: [CoreBluetooth.CBMutableService] {
+    get
+  }
+  public var advertisementData: [Swift.String : Any]? {
+    get
+  }
+}
+@available(*, deprecated, renamed: "CentralManagerRestoredStateType")
+public struct RestoredState {
+  public var restoredStateData: [Swift.String : Any] {
+    get
+  }
+  public var centralManager: RxBluetoothKit.CentralManager {
+    get
+  }
+  public var peripherals: [RxBluetoothKit.Peripheral] {
+    get
+  }
+  public var scanOptions: [Swift.String : Swift.AnyObject]? {
+    get
+  }
+  public var services: [RxBluetoothKit.Service] {
+    get
+  }
+}
+public enum RxBluetoothKitLogger {
+  public static var defaultLogger: RxBluetoothKit.Logger
+}
+@_hasMissingDesignatedInitializers public class ScannedPeripheral {
+  final public let peripheral: RxBluetoothKit.Peripheral
+  final public let advertisementData: RxBluetoothKit.AdvertisementData
+  final public let rssi: Foundation.NSNumber
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class Service {
+  final public let service: CoreBluetooth.CBService
+  final public let peripheral: RxBluetoothKit.Peripheral
+  public var isPrimary: Swift.Bool {
+    get
+  }
+  public var uuid: CoreBluetooth.CBUUID {
+    get
+  }
+  public var includedServices: [RxBluetoothKit.Service]? {
+    get
+  }
+  public var characteristics: [RxBluetoothKit.Characteristic]? {
+    get
+  }
+  public func discoverCharacteristics(_ characteristicUUIDs: [CoreBluetooth.CBUUID]?) -> RxSwift.Single<[RxBluetoothKit.Characteristic]>
+  public func discoverIncludedServices(_ includedServiceUUIDs: [CoreBluetooth.CBUUID]?) -> RxSwift.Single<[RxBluetoothKit.Service]>
+  @objc deinit
+}
+extension Service : Swift.Equatable {
+}
+public func == (lhs: RxBluetoothKit.Service, rhs: RxBluetoothKit.Service) -> Swift.Bool
+public typealias RestoredAdvertisementData = [Swift.String : Any]
+public enum StartAdvertisingResult {
+  case started
+  case attachedToExternalAdvertising(RxBluetoothKit.RestoredAdvertisementData?)
+}
+extension RxBluetoothKit.BluetoothState : Swift.Equatable {}
+extension RxBluetoothKit.BluetoothState : Swift.Hashable {}
+extension RxBluetoothKit.BluetoothState : Swift.RawRepresentable {}
+extension RxBluetoothKit.RxBluetoothKitLog.LogLevel : Swift.Hashable {}
+extension RxBluetoothKit.RxBluetoothKitLog.LogLevel : Swift.RawRepresentable {}

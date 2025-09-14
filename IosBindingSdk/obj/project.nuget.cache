@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Jjju8JX2knc=",
+  "success": true,
+  "projectFilePath": "/Users/tatjanaruskovska/Desktop/IosBindingSdk/IosBindingSdk.csproj",
+  "expectedPackageFiles": [
+    "/Users/tatjanaruskovska/.nuget/packages/microsoft.net.illink.tasks/8.0.10/microsoft.net.illink.tasks.8.0.10.nupkg.sha512"
+  ],
+  "logs": []
+}

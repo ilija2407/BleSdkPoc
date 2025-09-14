@@ -5,29 +5,27 @@
   </DisabledProjects>
   <MonoDevelop.Ide.ItemProperties.BleSdkMauiPoc PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget" />
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workbench ActiveDocument="BleSdkMauiPoc.csproj">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="MainPage.xaml.cs" />
-      <File FileName="BleSdkMauiPoc.csproj" Line="30" Column="26" />
+      <File FileName="BleSdkMauiPoc.csproj" Line="29" Column="33" />
       <File FileName="MauiProgram.cs" />
       <File FileName="Platforms/iOS/Program.cs" />
       <File FileName="Platforms/iOS/AppDelegate.cs" />
-      <File FileName="../IosBindingSdk/IosBindingSdk.csproj" Line="19" Column="21" />
-      <File FileName="../../../../usr/local/share/dotnet/sdk/8.0.403/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.RuntimeIdentifierInference.targets" Line="288" Column="5" />
+      <File FileName="../IosBindingSdk/IosBindingSdk.csproj" Line="26" Column="59" />
+      <File FileName="../../../../usr/local/share/dotnet/sdk/8.0.403/Sdks/Microsoft.NET.Sdk/targets/Microsoft.NET.RuntimeIdentifierInference.targets" />
       <File FileName="Platforms/iOS/Info.plist" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="BleSdkMauiPoc" expanded="True">
-            <Node name="BleSdkMauiPoc">
-              <Node name="Platforms" expanded="True">
-                <Node name="iOS" expanded="True" />
-              </Node>
+            <Node name="BleSdkMauiPoc" selected="True">
               <Node name="MainPage.xaml" expanded="True" />
             </Node>
             <Node name="IosBindingSdk" expanded="True">
-              <Node name="NativeReferenceFolder" expanded="True" selected="True" />
+              <Node name="NativeReferenceFolder" expanded="True" />
+              <Node name="Dependencies" expanded="True" />
               <Node name="NativeReferences" expanded="True" />
             </Node>
           </Node>

@@ -1,0 +1,5 @@
+[assembly: ObjCRuntime.LinkWith ("IgloohomeSwitfProxy.framework", SmartLink = true, ForceLoad = true, Frameworks = "CoreBluetooth Foundation")]
+[assembly: ObjCRuntime.LinkWith ("RxBluetoothKit.framework", SmartLink = true, ForceLoad = true, Frameworks = "CoreBluetooth Foundation")]
+[assembly: ObjCRuntime.LinkWith ("RxSwift.framework", SmartLink = true, ForceLoad = true)]
+[assembly: ObjCRuntime.LinkWith ("ZIPFoundation.framework", SmartLink = true, ForceLoad = true)]
+[assembly: ObjCRuntime.LinkWith ("iOSDFULibrary.framework", SmartLink = true, ForceLoad = true)]

@@ -1,0 +1,13 @@
+/Users/tatjanaruskovska/Desktop/IosBindingSdk/bin/Release/net8.0-ios/IosBindingSdk.resources.stamp
+/Users/tatjanaruskovska/Desktop/IosBindingSdk/bin/Release/net8.0-ios/IosBindingSdk.dll
+/Users/tatjanaruskovska/Desktop/IosBindingSdk/bin/Release/net8.0-ios/IosBindingSdk.pdb
+/Users/tatjanaruskovska/Desktop/IosBindingSdk/obj/Release/net8.0-ios/_ProcessedBundleResourcesPath.items
+/Users/tatjanaruskovska/Desktop/IosBindingSdk/obj/Release/net8.0-ios/_ProcessedContentPath.items
+/Users/tatjanaruskovska/Desktop/IosBindingSdk/obj/Release/net8.0-ios/IosBindingSdk.GeneratedMSBuildEditorConfig.editorconfig
+/Users/tatjanaruskovska/Desktop/IosBindingSdk/obj/Release/net8.0-ios/IosBindingSdk.AssemblyInfoInputs.cache
+/Users/tatjanaruskovska/Desktop/IosBindingSdk/obj/Release/net8.0-ios/IosBindingSdk.AssemblyInfo.cs
+/Users/tatjanaruskovska/Desktop/IosBindingSdk/obj/Release/net8.0-ios/IosBindingSdk.csproj.CoreCompileInputs.cache
+/Users/tatjanaruskovska/Desktop/IosBindingSdk/obj/Release/net8.0-ios/IosBindingSdk.dll
+/Users/tatjanaruskovska/Desktop/IosBindingSdk/obj/Release/net8.0-ios/refint/IosBindingSdk.dll
+/Users/tatjanaruskovska/Desktop/IosBindingSdk/obj/Release/net8.0-ios/IosBindingSdk.pdb
+/Users/tatjanaruskovska/Desktop/IosBindingSdk/obj/Release/net8.0-ios/ref/IosBindingSdk.dll

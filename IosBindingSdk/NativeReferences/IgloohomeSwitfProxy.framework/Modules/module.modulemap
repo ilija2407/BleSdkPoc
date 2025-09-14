@@ -1,0 +1,11 @@
+framework module IgloohomeSwitfProxy {
+  umbrella header "IgloohomeSwitfProxy.h"
+
+  export *
+  module * { export * }
+}
+
+module IgloohomeSwitfProxy.Swift {
+  header "IgloohomeSwitfProxy-Swift.h"
+  requires objc
+}

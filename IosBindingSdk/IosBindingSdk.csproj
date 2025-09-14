@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-ios</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>true</ImplicitUsings>
+    <IsBindingProject>true</IsBindingProject>
+  </PropertyGroup>
+<ItemGroup>
+  <NativeReference Include="NativeReferences/IgloohomeSwitfProxy.framework">
+    <Kind>Framework</Kind>
+    <ForceLoad>true</ForceLoad>
+    <Frameworks>CoreBluetooth Foundation</Frameworks>
+  </NativeReference>
+
+  <NativeReference Include="NativeReferences/RxBluetoothKit.framework">
+    <Kind>Framework</Kind>
+    <ForceLoad>true</ForceLoad>
+    <Frameworks>CoreBluetooth Foundation</Frameworks>
+  </NativeReference>
+
+  <NativeReference Include="NativeReferences/RxSwift.framework">
+    <Kind>Framework</Kind>
+    <ForceLoad>true</ForceLoad>
+  </NativeReference>
+
+  <NativeReference Include="NativeReferences/ZIPFoundation.framework">
+    <Kind>Framework</Kind>
+    <ForceLoad>true</ForceLoad>
+  </NativeReference>
+
+  <NativeReference Include="NativeReferences/iOSDFULibrary.framework">
+    <Kind>Framework</Kind>
+    <ForceLoad>true</ForceLoad>
+  </NativeReference>
+</ItemGroup>
+
+<!-- Optional but helpful for Swift-based frameworks -->
+<PropertyGroup>
+  <AlwaysEmbedSwiftStandardLibraries>true</AlwaysEmbedSwiftStandardLibraries>
+</PropertyGroup>
+
+
+  <ItemGroup>
+    <ObjcBindingApiDefinition Include="ApiDefinition.cs" />
+    <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
+  </ItemGroup>
+ 
+</Project>
